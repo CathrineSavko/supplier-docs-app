@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Документы поставщиков</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="button secondary" id="templatesButton">Шаблоны</button>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Локальное приложение</p>
+      <h1>Обработка документов китайских поставщиков</h1>
+      <p>Выберите задачу, добавьте текущие файлы и параметры. Постоянные шаблоны хранятся отдельно на этом компьютере.</p>
+    </section>
+    <section class="notice"><span>●</span><div><strong>Приложение работает локально.</strong> Шаблоны и загруженные файлы не отправляются в облако. Задачи №1, №2, №3 и №6 уже подключены; остальные сценарии добавляются по очереди после проверки на образцах.</div></section>
+    <section aria-labelledby="tasks-title">
+      <div class="section-title"><div><p class="eyebrow">Рабочие сценарии</p><h2 id="tasks-title">Выберите задачу</h2></div><p>6 задач</p></div>
+      <div class="task-grid" id="taskGrid"></div>
+    </section>
+    <section class="workspace hidden" id="workspace" aria-live="polite">
+      <button class="back" id="backButton">← Все задачи</button>
+      <div class="workspace-heading"><div><p class="eyebrow" id="workspaceNumber"></p><h2 id="workspaceTitle"></h2><p id="workspaceDescription"></p></div></div>
+      <form id="jobForm" novalidate>
+        <div class="form-layout">
+          <section class="panel"><h3>Параметры</h3><div id="fields" class="fields"></div></section>
+          <section class="panel"><h3>Исходные файлы</h3><p class="muted" id="fileHint"></p><label class="dropzone"><input id="sourceFiles" name="sourceFiles" type="file" multiple required><span>Выбрать файлы</span><small>или перетащите их сюда</small></label><div id="selectedFiles" class="selected-files"></div></section>
+        </div>
+        <section class="panel checks"><h3>Проверки результата</h3><ul id="checks"></ul></section>
+        <div class="actions"><div class="launch-actions"><button class="button primary" type="submit">Подготовить запуск</button><button class="button download-all hidden" id="downloadAllButton" type="button" data-download-all>Скачать все файлы</button></div><p id="jobResult" class="result" role="status"></p></div>
+      </form>
+    </section>
+  </main>
+  <dialog id="templatesDialog">
+    <div class="dialog-head"><div><p class="eyebrow">Постоянные файлы</p><h2>Шаблоны и образцы</h2></div><button class="icon-button" id="closeTemplates" aria-label="Закрыть">×</button></div>
+    <p class="muted">Загрузите файлы, которые используются многократно. Исходные документы для конкретной задачи всегда добавляются в форме запуска.</p>
+    <form id="templateForm" class="template-form">
+      <label>Тип шаблона<select name="category" id="templateCategory"></select></label>
+      <label class="template-upload">Выбрать файлы<input name="templates" type="file" multiple required></label>
+      <button class="button primary" type="submit">Сохранить шаблоны</button>
+      <p id="templateResult" class="result" role="status"></p>
+    </form>
+    <div id="templateList" class="template-list"></div>
+  </dialog>
+  <script src="/app.js"></script>
+</body>
+</html>
