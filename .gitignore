@@ -1,0 +1,19 @@
+# Runtime jobs and uploaded supplier documents
+data/jobs/
+data/worker.log
+data/worker-error.log
+
+# Python cache and local environment files
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Node and editor files
+node_modules/
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Temporary locks created by Microsoft Office
+~$*
